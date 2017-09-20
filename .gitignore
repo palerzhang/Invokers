@@ -1,0 +1,5 @@
+/project/Invokers/Temp/*
+/project/Invokers/Library/*
+/project/Invokers/obj/*
+/project/Invokers/Assembly-CSharp.csproj
+#*.meta
