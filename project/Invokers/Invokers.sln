@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{D3CBF48F-8AD1-54A3-F517-F8B1F79D16EC}") = "Invokers", "Assembly-CSharp.csproj", "{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
