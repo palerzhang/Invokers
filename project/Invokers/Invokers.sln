@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{D3CBF48F-8AD1-54A3-F517-F8B1F79D16EC}") = "Invokers", "Assembly-CSharp.csproj", "{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invokers", "Invokers.csproj", "{5438FCD3-F85A-1820-D8E7-0FEA23DD938B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C52CC294-12D5-51A9-426C-FA8C3A9C1BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5438FCD3-F85A-1820-D8E7-0FEA23DD938B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5438FCD3-F85A-1820-D8E7-0FEA23DD938B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5438FCD3-F85A-1820-D8E7-0FEA23DD938B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5438FCD3-F85A-1820-D8E7-0FEA23DD938B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
