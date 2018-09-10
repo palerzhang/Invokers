@@ -5,6 +5,8 @@ namespace Anonymous
 {
     namespace Network
     {
+        using INetObject = NetworkService.NetworkMessage.BaseMarshallable;
+
         public class NetObjectFactory
         {
             private static Dictionary<NetObjectClasses, Type> NetClasses;
