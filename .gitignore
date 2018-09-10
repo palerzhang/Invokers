@@ -3,3 +3,5 @@
 /project/Invokers/obj/*
 /project/Invokers/Assembly-CSharp.csproj
 #*.meta
+.vs
+UnityPackageManager
