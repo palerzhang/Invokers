@@ -1,8 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using System;
+
+using UnityEngine;
 
 namespace Anonymous
 {
@@ -18,7 +21,7 @@ namespace Anonymous
             /// <summary>
             /// looping
             /// </summary>
-            private Thread loop_thread;
+            private Thread loop_thread = null;
             /// <summary>
             /// buffer size
             /// </summary>
@@ -30,11 +33,13 @@ namespace Anonymous
             /// <summary>
             /// server
             /// </summary>
-            private Socket server;
+            private Socket server = null;
             /// <summary>
             /// end point
             /// </summary>
             private IPEndPoint end_point;
+
+            private HashSet<Socket> clients;
                         
             public NetServer()
             {
@@ -42,6 +47,15 @@ namespace Anonymous
                 IPAddress address = ip_host_info.AddressList[0];
                 end_point = new IPEndPoint(address, port);
                 server = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            }
+
+            ~NetServer()
+            {
+                if (server != null)
+                    server.Close();
+
+                if (loop_thread != null && loop_thread.IsAlive)
+                    loop_thread.Abort();
             }
             /// <summary>
             /// start server
@@ -54,11 +68,17 @@ namespace Anonymous
                     {
                         server.Bind(end_point);
                         server.Listen(10);
+
+                        loop_thread = new Thread(ServerLoop);
+                        loop_thread.IsBackground = true;
+                        loop_thread.Start();
+
+                        Debug.Log("server started.");
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    Debug.Log(e.ToString());
                 }
             }
 
@@ -68,15 +88,41 @@ namespace Anonymous
                 {
                     while (true)
                     {
-                        listener.BeginAccept(
-                       new AsyncCallback(AcceptCallback),
-                       listener);
+                        Debug.Log("wait connection");
+                        // try start accept
+                        server.BeginAccept(new AsyncCallback(AcceptCallback), server);
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    Debug.Log(e.ToString());
                 }
+            }
+
+            protected void AcceptCallback(IAsyncResult ar)
+            {
+                // Signal the main thread to continue.  
+                //allDone.Set();
+
+                // Get the socket that handles the client request.  
+                Socket the_server = (Socket)ar.AsyncState;
+                if (the_server == server)
+                {
+                    int x = 10;
+                }
+                Socket client = the_server.EndAccept(ar);
+                if (!clients.Contains(client))
+                {
+                    clients.Add(client);
+                }
+
+                Debug.Log(client.AddressFamily.ToString() + " is connect.");
+
+                //// Create the state object.  
+                //StateObject state = new StateObject();
+                //state.workSocket = handler;
+                //handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+                //    new AsyncCallback(ReadCallback), state);
             }
         }
     } // end network

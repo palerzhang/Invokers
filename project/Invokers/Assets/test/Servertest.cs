@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net.Sockets;
 
-public class Servertest : MonoBehaviour {
+using Anonymous.Network;
+
+public class Servertest : MonoBehaviour
+{
 
 	// Use this for initialization
-	void Start () {
-        Socket soc = null;
-        System.Byte[] bs = { };
-        soc.Send(bs);
+	void Start ()
+    {
+        NetServer server = new NetServer();
+        server.StartServer();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        Debug.Log("Main thread tick");
 	}
 }
