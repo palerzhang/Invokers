@@ -1,35 +1,32 @@
 ﻿using System.Collections.Generic;
 using System;
 
-namespace Anonymous
+namespace NetworkService.NetworkMessage
 {
-    namespace Network
+    public class NetObjectFactory
     {
-        public class NetObjectFactory
+        private static Dictionary<NetObjectClasses, Type> NetClasses;
+        private static NetObjectFactory instance;
+        public static NetObjectFactory Instance
         {
-            private static Dictionary<NetObjectClasses, Type> NetClasses;
-            private static NetObjectFactory instance;
-            public static NetObjectFactory Instance
-            {
-                get { return instance; }
-            }
-
-            private NetObjectFactory() { }
-            static NetObjectFactory()
-            {
-                // TODO: 
-                // prepare dictionary
-            }
-
-            INetObject CreateObject(NetObjectClasses classId)
-            {
-                if (NetClasses.ContainsKey(classId))
-                {
-                    return (INetObject)(NetClasses[classId].Assembly.CreateInstance(NetClasses[classId].FullName));
-                }
-                return null;
-            }
+            get { return instance; }
         }
-    } // end network
-} // end anonymous
+
+        private NetObjectFactory() { }
+        static NetObjectFactory()
+        {
+            // TODO: 
+            // prepare dictionary
+        }
+
+        INetObject CreateObject(NetObjectClasses classId)
+        {
+            if (NetClasses.ContainsKey(classId))
+            {
+                return (INetObject)(NetClasses[classId].Assembly.CreateInstance(NetClasses[classId].FullName));
+            }
+            return null;
+        }
+    }
+}
 
